@@ -1,0 +1,183 @@
+:root {
+    --background: #101114;
+    --primary-color: #1c1d20;
+    --secondary-color: #4a4d57;
+    --accent-color: #00FFC4;
+    --text-color: #f9f9f9;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+}
+
+body {
+    min-height: 100vh;
+    padding:10px;
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--accent-color);
+}
+
+.wrapper {
+    width: 700px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+#todo-input {
+    box-sizing: border-box;
+    padding: 12px 20px;
+    flex: 1;
+    background:none;
+    border: 2px solid var(--secondary-color);
+    border-radius: 1000px;
+    font:inherit;
+    color:var(--text-color);
+    caret-color: var(--accent-color);
+}
+#todo-input:focus {
+    outline:none;
+}
+
+#priority-select {
+    box-sizing: border-box;
+    padding: 12px 20px;
+    background: var(--primary-color);
+    border: 2px solid var(--secondary-color);
+    border-radius: 1000px;
+    font:inherit;
+    color:var(--text-color);
+    cursor: pointer;
+    min-width: 150px;
+}
+
+#priority-select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+#add-button {
+    background-color: var(--accent-color);
+    padding: 12px 30px;
+    border:none;
+    border-radius: 1000px;
+    font:inherit;
+    font-weight: 600;
+    color:var(--background);
+    cursor:pointer;
+    white-space: nowrap;
+}
+
+.todo {
+    margin-bottom:10px;
+    padding: 0 16px;
+    background-color: var(--primary-color);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.todo.priority-high {
+    border-left: 4px solid #ff0033;
+}
+
+.todo.priority-medium {
+    border-left: 4px solid #ffaa00;
+}
+
+.todo.priority-low {
+    border-left: 4px solid #00aaff;
+}
+
+.todo .todo-text { 
+    padding: 15px;
+    padding-right: 0;
+    flex-grow: 1;
+}
+
+.delete-button {
+    padding:3px;
+    background:none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.delete-button:hover svg{
+    fill: #ff0033;
+}
+
+.custom-checkbox{
+    border:2px solid var(--accent-color);
+    border-radius: 50%;
+    min-height: 20px;
+    min-width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox{
+    background-color: var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox svg {
+    fill:var(--primary-color);
+}
+input[type="checkbox"]:checked ~ .todo-text {
+    text-decoration: line-through;
+    color:var(--secondary-color)
+}
+
+input[type="checkbox"]{
+    display: none;
+}
+
+@media(max-width: 500px){
+    html{
+        font-size: 12px;
+    }
+    form {
+        flex-direction: column;
+    }
+    #todo-input, #priority-select, #add-button {
+        width: 100%;
+    }
+    #add-button {
+        margin-top: 0;
+        padding:15px;
+    }
+    h1{
+        margin-top:50px;
+        font-size:15vw;
+    }
+}
